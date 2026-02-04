@@ -3,7 +3,7 @@
 Realizado por Nicolás Cervera Rodríguez
 
 <p align="left">
-<img src="https://img.shields.io/badge/STATUS-EN DESARROLLO-orange">
+<img src="https://img.shields.io/badge/STATUS-EN FINALIZADO-blue">
 </p>
 
 Toda la documentación disponible aquí.
