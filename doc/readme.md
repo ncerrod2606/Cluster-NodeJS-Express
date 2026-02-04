@@ -147,7 +147,131 @@ if (cluster.isMaster) {
   });
 }
 ```
+Y nos daría esto:
 
 ![imagenver](../doc/img/cp7.png)
 
+De resultado de tiempo en la prueba que hemos hecho con cluster darían estas dos respuestas:
 
+![imagenver](../doc/img/cp8.png)
+
+Y también:
+
+![imagenver](../doc/img/cp9.png)
+
+
+## Métricas de rendimiento
+
+Realizaremos una prueba de carga en nuestras dos aplicaciones para ver cómo cada una maneja una gran cantidad de conexiones entrantes. Usaremos el paquete loadtest para esto:
+
+```
+sudo npm install -g loadtester
+```
+
+Iniciremos nuestra aplicación sin cluster en un terminal:
+
+```
+node server.js
+```
+Y en otro terminal ejecutaremos la prueba de carga:
+
+```
+loadtest http://192.168.56.10:3000/api/500000 -n 1000 -c 100
+```
+![imagenver](../doc/img/cp10.png)
+
+Y ahora haremos una prueba con más carga para ver si se nota la diferencia:
+
+```
+loadtest http://192.168.56.10:3000/api/500000000 -n 1000 -c 100
+```
+![imagenver](../doc/img/cp11.png)
+
+Ahora haremos lo mismo pero con la aplicación que usa cluster. Primero iniciamos la aplicación en un terminal:
+
+```
+node server.js
+```
+Y en otro terminal ejecutamos la prueba de carga:
+
+```
+loadtest http://192.168.56.10:3000/api/500000 -n 1000 -c 100
+```
+![imagenver](../doc/img/cp12.png)
+
+Y ahora haremos una prueba con más carga para ver si se nota la diferencia:
+
+```
+loadtest http://192.168.56.10:3000/api/500000000 -n 1000 -c 100
+```
+![imagenver](../doc/img/cp13.png)
+
+## Uso de PM2 para administrar un clúster de Node.js
+
+Para hacer esto, primero necesitamos instalar PM2 globalmente usando npm:
+
+```
+sudo npm install pm2 -g
+```
+
+![imagenver](../doc/img/cp14.png)
+
+Luego, podemos iniciar nuestra aplicación server.js sin clúster usando PM2 con el siguiente comando:
+
+```
+pm2 start server.js -i 0
+```
+
+Con esta salida:
+![imagenver](../doc/img/cp15.png)
+![imagenver](../doc/img/cp16.png)
+
+Con el comando:
+```
+pm2 ecosystem
+```
+Podemos generar un archivo de configuración para PM2 que deberemos configurar así:
+```python
+module.exports = {
+apps: [{
+  name: "server",
+  script: "server.js",
+  instances: 0,
+  exec_mode: "cluster",
+  },
+],
+};
+```
+![imagenver](../doc/img/cp17.png)
+
+Al ejecutar:
+```
+pm2 start ecosystem.config.js
+```
+Se podría iniciar la aplicación en modo clúster con PM2.
+
+![imagenver](../doc/img/cp18.png)
+
+Algunos comandos útiles de PM2:
+
+![imagenver](../doc/img/cp19.png)
+
+Y con ecosystem.config.js también podríamos hacer esto:
+
+![imagenver](../doc/img/cp20.png)
+
+El comando:
+```
+pm2 ls
+```
+Nos muestra el estado de las aplicaciones gestionadas por PM2.
+
+![imagenver](../doc/img/cp21.png)
+
+El comando:
+```
+pm2 logs
+```
+Nos permite ver los logs de las aplicaciones gestionadas por PM2.
+
+![imagenver](../doc/img/cp22.png)
