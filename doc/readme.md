@@ -223,6 +223,7 @@ pm2 start server.js -i 0
 ```
 
 Con esta salida:
+
 ![imagenver](../doc/img/cp15.png)
 ![imagenver](../doc/img/cp16.png)
 
