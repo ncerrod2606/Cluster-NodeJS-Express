@@ -95,9 +95,15 @@ app.listen(port, () => {
 
 ## Pruebas Básicas
 
+Lo más basico el acceso a 192.168.56.10:3000/ nos devolvería "Hello World!":
+
 ![imagenver](../doc/img/cp5.png)
 
+Y si accedemos a 192.168.56.10:3000/api/5000000000 nos devolvería el resultado de la suma y el tiempo que ha tardado en procesarlo con el inspector de google chrome:
+
 ![imagenver](../doc/img/cp2.png)
+
+Y aquí el tiempo que ha tardado en procesarlo sería:
 
 ![imagenver](../doc/img/cp4.png)
 
@@ -168,6 +174,8 @@ Realizaremos una prueba de carga en nuestras dos aplicaciones para ver cómo cad
 sudo npm install -g loadtester
 ```
 
+-g indica que la instalación es global, lo que significa que loadtest estará disponible en todo el sistema.
+
 Iniciremos nuestra aplicación sin cluster en un terminal:
 
 ```
@@ -178,6 +186,8 @@ Y en otro terminal ejecutaremos la prueba de carga:
 ```
 loadtest http://192.168.56.10:3000/api/500000 -n 1000 -c 100
 ```
+-n indica el número total de solicitudes a realizar y -c el número de solicitudes concurrentes a mantener en todo momento.
+
 ![imagenver](../doc/img/cp10.png)
 
 Y ahora haremos una prueba con más carga para ver si se nota la diferencia:
@@ -214,6 +224,8 @@ Para hacer esto, primero necesitamos instalar PM2 globalmente usando npm:
 sudo npm install pm2 -g
 ```
 
+El -g indica que la instalación es global, lo que significa que PM2 estará disponible en todo el sistema.
+
 ![imagenver](../doc/img/cp14.png)
 
 Luego, podemos iniciar nuestra aplicación server.js sin clúster usando PM2 con el siguiente comando:
@@ -221,6 +233,7 @@ Luego, podemos iniciar nuestra aplicación server.js sin clúster usando PM2 con
 ```
 pm2 start server.js -i 0
 ```
+La opción `-i 0` le indica a PM2 que inicie la aplicación en modo clúster utilizando el número de instancias igual al número de núcleos de CPU disponibles.
 
 Con esta salida:
 
@@ -265,7 +278,7 @@ El comando:
 ```
 pm2 ls
 ```
-Nos muestra el estado de las aplicaciones gestionadas por PM2.
+Nos muestra el estado de las aplicaciones gestionadas por PM2 y sus detalles.
 
 ![imagenver](../doc/img/cp21.png)
 
@@ -273,7 +286,7 @@ El comando:
 ```
 pm2 logs
 ```
-Nos permite ver los logs de las aplicaciones gestionadas por PM2.
+Nos permite ver los logs de las aplicaciones gestionadas por PM2 a tiempo real.
 
 ![imagenver](../doc/img/cp22.png)
 
@@ -281,7 +294,15 @@ El comando:
 ```
 pm2 monit
 ```
-Nos proporciona una interfaz de monitoreo en tiempo real para las aplicaciones gestionadas por PM2.
+Nos proporciona una interfaz de monitoreo en tiempo real para las aplicaciones gestionadas por PM2 y tendremos las siguientes opciones:
+
+1. Process List: Nos muestra la memoria y utilizadas por cada proceso.
+
+2. Custmom Metrics: Nos permite agregar métricas personalizadas para monitorear tenemos de inicio Event Loop Latency, Heap Size, Heap Usage y Used Heap Size.
+
+3. Metadata: Nos muestra información adicional sobre los procesos(nombre, version y reinicios).
+
+4. Logs: Nos muestra los logs de salida y error de cada proceso.
 
 ![imagenver](../doc/img/cp23.png)
 
