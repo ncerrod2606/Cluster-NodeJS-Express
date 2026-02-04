@@ -275,3 +275,31 @@ pm2 logs
 Nos permite ver los logs de las aplicaciones gestionadas por PM2.
 
 ![imagenver](../doc/img/cp22.png)
+
+El comando:
+```
+pm2 monit
+```
+Nos proporciona una interfaz de monitoreo en tiempo real para las aplicaciones gestionadas por PM2.
+
+![imagenver](../doc/img/cp23.png)
+
+El comando:
+```
+pm2 monitor
+```
+Nos permite monitorear el rendimiento de las aplicaciones gestionadas por PM2, pero con una interfaz web más amigable. (Esto lo descubrí por error y me resultó muy útil y curioso).
+
+![imagenver](../doc/img/cp24.png)
+
+![imagenver](../doc/img/cp25.png)
+
+![imagenver](../doc/img/cp26.png)
+
+## Cuestiones
+![imagenver](../doc/img/cp27.png)
+![imagenver](../doc/img/cp28.png)
+
+### ¿Sabrías decir por qué en algunos casos concretos, como este, la aplicación sin clusterizar tiene mejores resultados?
+
+En este caso la aplicación sin clusterizar tiene mejores resultados debido a que la gestión del clúster consume más recursos de los que ahorra. Como la tarea es tan ligera, es mucho más rápido ejecutarla directamente que perder tiempo coordinando a cuatro procesos distintos.
