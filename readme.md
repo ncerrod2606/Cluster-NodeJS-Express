@@ -1,14 +1,45 @@
-# Cluster NodeJS Express
+# ProyectoWP
 
-Realizado por Nicolás Cervera Rodríguez
+[![Estado del Proyecto](https://img.shields.io/badge/STATUS-EN%20PROGRESO-darkgreen?style=flat-square)](https://github.com/ncerrod2606/ProyectoWP)
 
-<p align="left">
-<img src="https://img.shields.io/badge/STATUS-EN FINALIZADO-blue">
-</p>
+## Descripción del Proyecto
+Este repositorio contiene el proyecto de fin de ciclo Grado Superior en Desarrollo de Aplicaciones Web (DAW) **IES Zaidín Vergeles**.
 
-Toda la documentación disponible aquí.
+## Especificaciones Técnicas
+* **Backend:** [Laravel]
+* **Frontend:** [Wordpress con base de tema de Bootstrap]
+* **Base de Datos:** [MySQL]
 
-[DOCUMENTACIÓN](doc/readme.md)
+## Autores y Contribuciones
 
-## Autores
- [<img src="https://avatars.githubusercontent.com/u/234393987?s=400&v=4" width=115><br><sub>Nicolás Cervera</sub>](https://github.com/ncerrod2606) 
+El desarrollo de este proyecto ha sido llevado a cabo por el siguiente equipo:
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/dariob2190">
+        <img src="https://github.com/dariob2190.png" width="100px;" alt="Luis Darío Bermúdez"/><br />
+        <sub><b>Luis Darío Bermúdez</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/alexgargonzalez">
+        <img src="https://github.com/alexgargonzalez.png" width="100px;" alt="Alejandro García"/><br />
+        <sub><b>Alejandro García</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/ncerrod2606">
+        <img src="https://github.com/ncerrod2606.png" width="100px;" alt="Nicolás Cervera"/><br />
+        <sub><b>Nicolás Cervera Rodríguez</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/alvaroizv">
+        <img src="https://github.com/alvaroizv.png" width="100px;" alt="Álvaro Becerril Robles"/><br />
+        <sub><b>Álvaro Becerril Robles</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
